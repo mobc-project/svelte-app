@@ -1,5 +1,8 @@
 /node_modules/
-/public/build/
 
-.DS_Store
+/dist/assets/
+/dist/main.js
+/dist/main.js.map
+/dist/components
+
 package-lock.json
