@@ -1,7 +1,7 @@
 {
     "name": "SVELTE-PWA",
     "short_name": "SVELTE-PWA",
-    "Scope": "/",
+    "scope": "/",
     "start_url": "/index.html",
     "display": "standalone",
     "theme_color": "#5bd1d7",
