@@ -4,8 +4,9 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv dist",
-    "validate": "svelte-check"
+    "start": "sirv dist -s --host 192.168.178.34",
+    "validate": "svelte-check",
+    "deploy": "firebase deploy --only hosting --token 1/NAMipFWFgaKj5M5d0GLsQpj_RfT2vrNxKQg4cCgOg_g"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
@@ -22,8 +23,11 @@
     "svelte": "^3.31.0",
     "svelte-check": "^1.1.22",
     "svelte-preprocess": "^4.6.1",
+    "svelte-router-spa": "^5.8.3",
     "tslib": "^2.0.3",
     "typescript": "^4.1.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    
+  }
 }

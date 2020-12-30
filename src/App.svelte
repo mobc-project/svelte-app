@@ -1,23 +1,35 @@
 <script lang="ts">
-	import HelloWorld from './components/HelloWorld.svelte'
+	import { Router } from 'svelte-router-spa'
+  	import { routes } from './routes'
 
-	export let name: string
+	/*
+	const width = 600
+	const height = 800
 
-	
+	//
+	window.addEventListener('resize', () => {
+      window.resizeTo(width, height)
+    })
+	*/
 
 	// register service-worker
 	if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js');
+      //navigator.serviceWorker.register('/service-worker.js');
 	}
 
-	
-	
 </script>
 
 <style>
+
+	:global(body) {
+        
+        /* no autorefresh by pulling mobile browser */
+        overscroll-behavior-y: contain;
+	}
+	
 	
 </style>
 
-<main>
-	<HelloWorld {name}/>
-</main>
+<div >
+    <Router {routes} />
+</div>

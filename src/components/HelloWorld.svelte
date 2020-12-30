@@ -1,6 +1,6 @@
 <script lang="ts">
 
-    import { count } from "../store/store"
+    import { count } from "../stores/store"
 
     export let name: string;
 
@@ -51,6 +51,7 @@
 </script>
   
 <style>
+   
     main {
 		text-align: center;
 		padding: 1em;
@@ -63,7 +64,9 @@
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
-	}
+  }
+  
+  
 
 	@media (min-width: 640px) {
 		main {

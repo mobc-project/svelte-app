@@ -34,7 +34,7 @@ function serve() {
 export default {
 	input: 'src/main.ts',
 	output: {
-		sourcemap: true,
+		sourcemap: false,
 		format: 'iife',
 		name: 'app',
 		file: 'dist/main.js'
@@ -60,7 +60,9 @@ export default {
 			browser: true,
 			dedupe: ['svelte']
 		}),
-		commonjs(),
+		commonjs({
+			"requireReturnsDefault": 'auto'
+		  }),
 		typescript({
 			sourceMap: !production,
 			inlineSources: !production

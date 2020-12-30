@@ -33,6 +33,14 @@ self.addEventListener("install", (evt) => {
 //  ServiceWorker is activate
 self.addEventListener("activate", (evt) => {
 
+  /*
+  // Add fetch event handler here.
+  if (evt.request.mode !== 'navigate') {
+  // Not a page navigation, bail.
+  return;
+  }
+
+  */
   // Remove previous cached data from disk.
   evt.waitUntil(
       caches.keys().then( (cacheNames) => {
@@ -53,7 +61,8 @@ self.addEventListener("fetch", (evt) => {
   evt.respondWith(
     (async () => {
       const response = await caches.match(evt.request);
-      return response || fetch(evt.request);
+      //return response || fetch(evt.request);
+      return fetch(evt.request) || response;
     })()
   );
 });

@@ -1,0 +1,15 @@
+{
+  "targets": {
+    "mcc-form": {
+      "hosting": {
+        "app": [
+          "mobc-koloa"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "koloa": "mcc-form"
+  }
+}
+
