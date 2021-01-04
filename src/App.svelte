@@ -1,20 +1,20 @@
 <script lang="ts">
 	import { Router } from 'svelte-router-spa'
-  	import { routes } from './routes'
+	import { routes } from './routes'
+	import { setting } from './stores/setting'
 
-	/*
-	const width = 600
-	const height = 800
-
-	//
-	window.addEventListener('resize', () => {
-      window.resizeTo(width, height)
-    })
-	*/
-
+	// fixed window size for PWA installed on Desktop
+	if ($setting.is_fixed) {
+		window.addEventListener('resize', () => {
+			window.resizeTo($setting.fixed_w || 350, $setting.fixed_h || 400)
+		})
+	}
+			
 	// register service-worker
-	if ('serviceWorker' in navigator) {
-      //navigator.serviceWorker.register('/service-worker.js');
+	if ($setting.is_pwa && $setting.serviceworker) {
+		if ('serviceWorker' in navigator) {	
+			  navigator.serviceWorker.register($setting.serviceworker);
+		}
 	}
 
 </script>

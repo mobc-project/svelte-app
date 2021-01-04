@@ -4,7 +4,8 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv dist -s --host 192.168.178.34",
+    "start2": "sirv dist -s --host 192.168.178.34",
+    "start": "sirv dist -s",
     "validate": "svelte-check",
     "deploy": "firebase deploy --only hosting --token 1/NAMipFWFgaKj5M5d0GLsQpj_RfT2vrNxKQg4cCgOg_g"
   },
@@ -28,6 +29,8 @@
     "typescript": "^4.1.3"
   },
   "dependencies": {
-    
+    "postcss": "^8.2.2",
+    "sass": "^1.32.0",
+    "svelte-materialify": "^0.3.4"
   }
 }

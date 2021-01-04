@@ -41,7 +41,12 @@ export default {
 	},
 	plugins: [
 		svelte({
-			preprocess: sveltePreprocess(),
+			preprocess: sveltePreprocess(
+				{ scss: {
+					includePaths: ['src/theme'],
+				  },
+				},
+			),
 			compilerOptions: {
 				// enable run-time checks when not in production
 				dev: !production

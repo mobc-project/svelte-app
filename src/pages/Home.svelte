@@ -26,7 +26,7 @@
 
     <Navigate to="/about">About </Navigate>
 
-    <button on:click="{() => console.log('click')}">Link 1</button>
+    <button on:click="{() => goto('/info')}">Info</button>
     
     <!--
     <button on:click="{ test }">Link Test</button>
@@ -35,7 +35,7 @@
     {JSON.stringify(currentRoute)}
      Du bist in {currentRoute.queryParams.id}
     -->
-    <button on:click="{() => goto('/info/show/333')}">Link 2</button>
+    <button on:click="{() => goto('/info/show/333')}">Info (333)</button>
  
 
     

@@ -1,6 +1,10 @@
 <script lang="ts">
     import { Route } from 'svelte-router-spa'
 
+    // import layout controls
+    import Header from './Header.svelte'
+    import Footer from './Footer.svelte'
+
     // from Router
     export let currentRoute
     export let params = {}
@@ -11,7 +15,7 @@
     :global(body) {
         display: flex;
         flex-direction: column;
-        overscroll-behavior-y: contain; 
+        overscroll-behavior-y: contain;
     }
     
     main {
@@ -21,9 +25,15 @@
 
 <div>
 
+    <!-- Header -->
+    <Header />
+    
     <!-- our current content from routes -->
     <main >
         <Route {currentRoute} {params}/>
     </main>
 
+    <!-- Footer -->
+    <Footer />
+    
 </div>

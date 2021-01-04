@@ -1,5 +1,6 @@
 /// import layouts
-import Layout from "./layouts/Main.svelte"
+//import Layout from "./layouts/Main.svelte"
+import Layout from "./layouts/materialify/Main.svelte"
 
 // import pages
 import Home from "./pages/Home.svelte"
