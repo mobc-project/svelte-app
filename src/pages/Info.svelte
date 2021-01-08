@@ -3,8 +3,9 @@
 </svelte:head>
 
 <script lang="ts">
-    import { routeIsActive } from 'svelte-router-spa'
-    import Page from '../components/Slide.svelte'
+    import { Navigate, navigateTo, routeIsActive } from 'svelte-router-spa'
+    
+    import Page from '../layouts/Type01.svelte'
 
     // from Router
     export let currentRoute
@@ -21,14 +22,30 @@
         color: red;
     }
 
+    .page {
+        
+        height: 100%;
+    }
+
 </style>
 
-<Page>
-    {JSON.stringify(currentRoute?.childRoute?.namedParams?.id)}
-    Info{JSON.stringify(params)}
+<div class="page">
+    <Page transition="slide">
 
-    <a href="/#" class:active={routeIsActive('/info')} class:inactive={routeIsActive(`/info/show/${currentRoute?.childRoute?.namedParams?.id}`)}>
-        Say hello
-      </a>
+        <!--
+        {JSON.stringify(currentRoute?.childRoute?.namedParams?.id)}
+        Info{JSON.stringify(params)}
+         -->
+        Info{JSON.stringify(params)}
 
-</Page>
+        <Navigate to="/" >Home</Navigate>
+
+        <!--
+        <a href="/#" class:active={routeIsActive('/info')} class:inactive={routeIsActive(`/info/show/${currentRoute?.childRoute?.namedParams?.id}`)}>
+            Say hello
+        </a>
+        -->
+
+    </Page>
+
+</div>

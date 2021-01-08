@@ -1,8 +1,8 @@
-/// import layouts
+// import all layouts
 //import Layout from "./layouts/Main.svelte"
 import Layout from "./layouts/materialify/Main.svelte"
 
-// import pages
+// import all pages
 import Home from "./pages/Home.svelte"
 import Info from "./pages/Info.svelte"
 import About from "./pages/About.svelte"
@@ -16,7 +16,7 @@ const routes = [
     },
 
     {
-        name: 'info',
+        name: '/info',
         layout: Layout,
         component: Info,
 

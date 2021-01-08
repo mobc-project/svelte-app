@@ -5,6 +5,11 @@
 <script lang="ts">
     import Page from '../layouts/Type01.svelte'
     import Slots from '../components/PageLayout01.svelte'
+
+    // from Router
+    export let currentRoute
+    export let params
+    
 </script>
 
 <Page transition="slide">

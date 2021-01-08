@@ -16,6 +16,7 @@
     
     main {
         margin: 10px;
+        height: 100%;
     }
 </style>
 

@@ -16,6 +16,21 @@ export interface Isetting {
     is_fixed?: boolean
     fixed_w?: number
     fixed_h?: number
+
+    layout?: {
+        theme?: string
+        header?: number
+        header_title?: string
+        header_color?: string
+        footer?: number
+        footer_title?: string
+        footer_color?: string
+        
+    }
+    
+    // fixed Size : max_width / max_height (if PWA)
+    // Orientation:  portrait / landscape / all
+    
 }
 
 //
