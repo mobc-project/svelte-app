@@ -7,27 +7,26 @@
     // https://unpkg.com/svelte-materialify@0.3.4/compiled/index.js
     // https://unpkg.com/browse/svelte-materialify@0.3.4/
 
-    // media-queries
-    import { media } from '../../stores/media'
-    import { settings } from '../../settings'
-    
+    // settings & media queries
+    import { settings, mainMenu, media  } from '../../settings'
+        
     // router
     import { Route, navigateTo, routeIsActive } from 'svelte-router-spa'
-    //import { Navigate, navigateTo} from 'svelte-router-spa'
-
+    
+    // Materialify
     import { MaterialApp } from 'svelte-materialify'
     import { AppBar, Button, Icon, Menu, ListItem, Footer } from 'svelte-materialify/src'
-
 
     // properties from Router
     export let currentRoute: any 
     export let params: any 
 
     // set Main menu
-    const items = settings.menues.main
+    const items = mainMenu
 
     let backBtnVisible 
 
+    // responsitiv
     $ : if (currentRoute) {
         backBtnVisible = !routeIsActive('/')
         //params = 'willi'
@@ -38,9 +37,14 @@
         window.history.back()
     }
 
+    // navigate to
     function handleNavigate(to) {
-        console.log('navTo',to)
         navigateTo(to)
+    }
+
+    // navigate to home
+    function goToHome() {
+        navigateTo('/')
     }
 
 </script>
@@ -64,15 +68,17 @@
     
         <AppBar class="{settings.layout?.header_color}">
 
-            <!-- Back-Button -->
+            <!-- Back-Button
             <div slot="icon" class:hidden={!backBtnVisible}>
                 <Button fab icon depressed on:click={handleHistory}>
                     <Icon class="mdi mdi-arrow-left" />
                 </Button>
             </div>
-
+ -->
             <!-- Title -->
-            <span slot="title">{settings.layout?.header_title}{currentRoute.component.name}</span>
+            <span slot="title">
+                {settings.layout?.header_title}{currentRoute.component.name}
+            </span>
             
             <div style="flex-grow:1" />
     <!--

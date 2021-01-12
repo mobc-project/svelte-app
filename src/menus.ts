@@ -1,5 +1,5 @@
 
-//
+// interface menu
 export interface IMenu {
     title: string
     desc?: string

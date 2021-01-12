@@ -1,6 +1,6 @@
 <script>
-	import { slide, fly } from 'svelte/transition';
-	import { quintOut, quintInOut, elasticInOut, backInOut } from 'svelte/easing';
+	import { slide, fly, crossfade } from 'svelte/transition';
+	import { quintOut, quintIn, quintInOut, elasticInOut, backInOut } from 'svelte/easing';
 	
 </script>
 
@@ -9,6 +9,6 @@
  
 </style> 
 
-<div transition:fly="{{delay: 5, duration: 400, x: 1000, y:0, opacity: 0.5, easing: quintInOut}}">
+<div transition:fly="{{delay: 5, duration: 400, x: 2000, y:0, opacity: 0.5, easing: quintInOut}}">
 	<slot />
 </div>

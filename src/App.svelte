@@ -2,8 +2,8 @@
 	// Router
 	import { Router } from 'svelte-router-spa'
 
-	// all APP settings
-	import { settings } from './settings'
+	// all APP settings + mainRoute
+	import { settings, mainRoute } from './settings'
 	
 	// router options
 	let options = {
@@ -26,8 +26,8 @@
 		}
 	}
 
-	// get all routes for APP
-	let routes = settings.routes
+	// get main routes for APP
+	let routes = mainRoute 
 
 </script>
 

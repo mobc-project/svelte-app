@@ -3,7 +3,7 @@
 
     // import layout controls
     import Header from './Header.svelte'
-    import Footer from './Footer.svelte'
+    import Footer from './materialify/Footer.svelte'
 
     // from Router
     export let currentRoute

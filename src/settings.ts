@@ -1,7 +1,9 @@
-import { routes } from './routes'
-import { IMenu, main } from './menus'
+// media mainMenu + mainRoute
+import { media } from './stores/media'
+import { main as mainRoute } from './routes'
+import { main as mainMenu } from './menus'
 
-//
+// interface settings
 export interface ISetting {
     name: string
     version: string 
@@ -26,19 +28,12 @@ export interface ISetting {
         
     },
 
-    menues: {
-        main: Array<IMenu>
-    }
-
-    //
-    routes: any
-    
     // fixed Size : max_width / max_height (if PWA)
     // Orientation:  portrait / landscape / all
     
 }
 
-// create settings
+// APP-settings
 export const settings: ISetting = {
 	name: "PWA APP",
 	version: "1.0.0",
@@ -63,15 +58,7 @@ export const settings: ISetting = {
         //footer_color: "indigo theme--light", // default = header_color
     },
     
-    //
-    menues: {
-        main: main
-    },
-
-    //
-    routes: routes,
-
-
+    
 	is_fixed: false,
     fixed_w: 360,
 	fixed_h: 640,
@@ -80,5 +67,10 @@ export const settings: ISetting = {
 	// project
 
 }
+
+// exports
+export { media}
+export { mainRoute }
+export { mainMenu }
 
 

@@ -3,23 +3,54 @@
 </svelte:head>
 
 <script lang="ts">
-    import Page from '../layouts/Type01.svelte'
-    import Slots from '../components/PageLayout01.svelte'
 
-    // from Router
+    import { onMount } from 'svelte'
+    import { paramsDlg } from '../stores/dialog' 
+
+    // Router
+    import { Navigate, navigateTo} from 'svelte-router-spa'
+
+    
+    // Pagetype
+    import Page from '../layouts/Type01.svelte'
+    
+    // set by Router
     export let currentRoute
     export let params
-    
+
+    // settings for page
+    let pageSettings = {
+        hasHeader: true
+    }
+    //$paramsDlg.hasHeader = true
+    $paramsDlg = pageSettings
+
+    //
+    onMount( async() => { 
+        
+        // set params for dialog
+        //$paramsDlg.hasHeader = true
+    })
+
+
 </script>
 
-<Page transition="slide">
-    <Slots>
-        <h1 slot="header">Header</h1>
+<!--
+<Dialog fullscreen bind:active>
+    <h2>About</h2>
+</Dialog>
+-->
 
-        <h2 slot="content"> 
-            <h1 >Hello</h1>
-        </h2>
+<!--
+<Page 
+    transition="slide"
+    title="About"
+>
 
-        <h1 slot="footer">Footer</h1>
-    </Slots>
+    <h2>About</h2>
 </Page>
+-->
+
+<h2>About</h2>
+Info{JSON.stringify(currentRoute)}
+Info{JSON.stringify(params)}

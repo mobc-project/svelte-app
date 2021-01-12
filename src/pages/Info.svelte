@@ -1,36 +1,35 @@
-<svelte:head>
-	<title>Info</title>
-</svelte:head>
 
 <script lang="ts">
-    import { Navigate, navigateTo, routeIsActive } from 'svelte-router-spa'
     
+    // Router
+    import { Navigate, navigateTo, routeIsActive } from 'svelte-router-spa'
+
+    // app settings and media-queries
+    import { settings, media, mainRoute, mainMenu, } from '../settings'
+    
+    // Pagetype
     import Page from '../layouts/Type01.svelte'
 
     // from Router
     export let currentRoute
     export let params
 
+    function handleCreate(evt) {
+        console.log("create", evt.detail.title)
+    }
+
 </script>
 
 <style>
-    .active {
-        color: green;
-    }
-
-    .inactive {
-        color: red;
-    }
-
-    .page {
-        
-        height: 100%;
-    }
-
+   
 </style>
 
-<div class="page">
-    <Page transition="slide">
+
+<Page 
+    transition="slide"
+    title="Info über"
+    on:create={handleCreate}
+>
 
         <!--
         {JSON.stringify(currentRoute?.childRoute?.namedParams?.id)}
@@ -46,6 +45,4 @@
         </a>
         -->
 
-    </Page>
-
-</div>
+</Page>
