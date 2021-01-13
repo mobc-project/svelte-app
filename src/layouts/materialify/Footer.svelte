@@ -6,6 +6,9 @@
     export let color: string
     export let text: string
 
+    // fixed height
+    export const height = 40
+
 </script>
 
 <style>

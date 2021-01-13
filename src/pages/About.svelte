@@ -1,56 +1,48 @@
-<svelte:head>
-	<title>About</title>
-</svelte:head>
-
 <script lang="ts">
-
-    import { onMount } from 'svelte'
-    import { paramsDlg } from '../stores/dialog' 
-
     // Router
     import { Navigate, navigateTo} from 'svelte-router-spa'
 
+    // Params for Dialog (PageMain or PageModal)
+    import { paramsDlg } from '../stores/dialog' 
     
-    // Pagetype
-    import Page from '../layouts/Type01.svelte'
+    // layout Page-Content
+    import Content from '../layouts/PageContent.svelte'
     
     // set by Router
     export let currentRoute
     export let params
 
-    // settings for page
-    let pageSettings = {
-        hasHeader: true
+    // content is created
+    function handleCreate(evt) {
+        //console.log("create", evt.detail.title)
     }
-    //$paramsDlg.hasHeader = true
+
+    // page-settings
+    let pageSettings = {
+        title: "Über uns",
+        checkauth: false,
+        hasHeader: true,
+        hasFooter: true,
+    }
+    
+    // assign settings
     $paramsDlg = pageSettings
-
-    //
-    onMount( async() => { 
-        
-        // set params for dialog
-        //$paramsDlg.hasHeader = true
-    })
-
 
 </script>
 
-<!--
-<Dialog fullscreen bind:active>
-    <h2>About</h2>
-</Dialog>
--->
+<style>
 
-<!--
-<Page 
-    transition="slide"
-    title="About"
+</style>
+
+<Content
+    style="background-color: red;"
+    transition="" 
+    on:create={handleCreate}
+    title="{pageSettings.title}"
+    
 >
+    <!-- your content goes here-->
+    <h4>About</h4>
+    
+</Content>
 
-    <h2>About</h2>
-</Page>
--->
-
-<h2>About</h2>
-Info{JSON.stringify(currentRoute)}
-Info{JSON.stringify(params)}

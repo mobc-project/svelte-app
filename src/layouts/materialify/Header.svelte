@@ -15,6 +15,9 @@
     export let title: string = ""
     export let hasMenuBtn = true
 
+    // fixed height
+    export const height = 56
+
     // go back in history 
     function handleBackBtn(evt) {
         if (backToHome) {

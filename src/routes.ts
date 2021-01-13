@@ -1,12 +1,17 @@
 // import all layouts
 import Main from "./layouts/materialify/PageMain.svelte"
 import Modal from "./layouts/materialify/PageModal.svelte"
-//import Layout from "./layouts/materialify/Main.svelte"
 
-// import all pages
+// import all (main) pages 
 import Home from "./pages/Home.svelte"
 import Info from "./pages/Info.svelte"
 import About from "./pages/About.svelte"
+
+
+function userIsLoggedIn() {
+    return false
+  }
+  
 
 // all routes
 export const main = [
@@ -16,6 +21,8 @@ export const main = [
         component: Home,
     },
 
+    
+
     {
         name: '/info',
         layout: Main,
@@ -24,7 +31,7 @@ export const main = [
         nestedRoutes: [
             {
                 name: 'show/:id',
-                layout: Main,
+                //layout: Main,
                 component: Info,
             }
            
@@ -33,7 +40,7 @@ export const main = [
 
     {
         name: 'about',
-        params:"willi from Dialog",
+        //onlyIf: { guard: userIsLoggedIn, redirect: '/login' },
         layout: Modal,
         component: About,
         

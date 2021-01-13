@@ -9,6 +9,6 @@
  
 </style> 
 
-<div transition:fly="{{delay: 5, duration: 400, x: 2000, y:0, opacity: 0.5, easing: quintInOut}}">
+<div transition:fly="{{delay: 0, duration: 400, x: 2000, y:0, opacity: 0.5, easing: quintIn}}">
 	<slot />
 </div>

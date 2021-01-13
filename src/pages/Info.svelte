@@ -1,48 +1,48 @@
-
 <script lang="ts">
-    
-    // Router
-    import { Navigate, navigateTo, routeIsActive } from 'svelte-router-spa'
+    // Params for Dialog (PageMain or PageModal)
+    import { paramsDlg } from '../stores/dialog' 
 
-    // app settings and media-queries
-    import { settings, media, mainRoute, mainMenu, } from '../settings'
+    // Router for navigation - optional
+    import { Navigate, navigateTo} from 'svelte-router-spa'
     
-    // Pagetype
-    import Page from '../layouts/Type01.svelte'
-
-    // from Router
+    // layout Page-Content
+    import Content from '../layouts/PageContent.svelte'
+    
+    // set by Router
     export let currentRoute
     export let params
 
+    // content is created
     function handleCreate(evt) {
-        console.log("create", evt.detail.title)
+        //console.log("create", evt.detail.title)
     }
+
+    // page-settings
+    let pageSettings = {
+        title: "Information",
+        checkauth: true,
+        hasHeader: true,
+        hasFooter: true,
+    }
+    
+    // assign settings
+    $paramsDlg = pageSettings
 
 </script>
 
 <style>
-   
+
 </style>
 
-
-<Page 
-    transition="slide"
-    title="Info über"
+<Content
+    style=""
+    transition="slide" 
     on:create={handleCreate}
+    title="{pageSettings.title}"
 >
+    <!-- your content goes here-->
+    <h4>{pageSettings.title}</h4>
+    
 
-        <!--
-        {JSON.stringify(currentRoute?.childRoute?.namedParams?.id)}
-        Info{JSON.stringify(params)}
-         -->
-        Info{JSON.stringify(params)}
+</Content>
 
-        <Navigate to="/" >Home</Navigate>
-
-        <!--
-        <a href="/#" class:active={routeIsActive('/info')} class:inactive={routeIsActive(`/info/show/${currentRoute?.childRoute?.namedParams?.id}`)}>
-            Say hello
-        </a>
-        -->
-
-</Page>

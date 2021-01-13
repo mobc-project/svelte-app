@@ -1,22 +1,33 @@
 <script lang="ts">
+    // Params for Dialog (PageMain or PageModal)
+    import { paramsDlg } from '../stores/dialog' 
 
     // Router
     import { Navigate, navigateTo} from 'svelte-router-spa'
-
-    // app settings and media-queries
-    import { settings, media } from '../settings'
-
-    // Pagetype
-    import Page from '../layouts/Type01.svelte'
+    
+    // layout Page-Content
+    import Content from '../layouts/PageContent.svelte'
     
     // set by Router
     export let currentRoute
     export let params
 
-    //
+    // content is created
     function handleCreate(evt) {
-        console.log("create", evt.detail.title)
+        //console.log("create", evt.detail.title)
+        
     }
+
+    // page-settings
+    let pageSettings = {
+        title: "Home",
+        checkauth: false,
+        hasHeader: true,
+        hasFooter: true,
+    }
+    
+    // assign settings
+    $paramsDlg = pageSettings
 
 </script>
 
@@ -24,30 +35,15 @@
 
 </style>
 
-
-<Page 
-    transition="slides" 
-    title="Home"
-    style1="background-color: red;"
+<Content
+    style=""
+    transition="slide" 
     on:create={handleCreate}
+    title="{pageSettings.title}"
 >
-    Home
-
-<!--
-    <Navigate to="/about">About </Navigate>
--->
-    <button on:click="{() => navigateTo('/info' )}">Info</button>
-   
-<!--
-    <button on:click="{ test }">Link Test</button>
+    <!-- your content goes here-->
+    <h4>{pageSettings.title}</h4>
     
-    <button on:click="{ navigateTo }">Link Test</button>
-    {JSON.stringify(currentRoute)}
-     Du bist in {currentRoute.queryParams.id}
--->
-<!--
-    <button on:click="{() => goto('/info/show/333')}">Info (333)</button>
--->
-</Page>
 
+</Content>
 
