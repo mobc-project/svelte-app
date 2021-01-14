@@ -26,18 +26,21 @@
     // add all style="" from child 
     let stylish = $$props.style
 
+    /*
     // reference 
     let checkauth
 
     // responsitiv
     $ : if ($paramsDlg.title) {
         checkauth = $paramsDlg.checkauth
+        console.log('changed ...',checkauth,$user.auth)
     }
+    */
 
     // on mount
 	onMount( async () => { 
 
-        console.log("create content", title)
+        // console.log("create content", title)
 
         // dispatch on:create
         dispatch('create', { 
@@ -48,25 +51,23 @@
     
 </script>
 
-{#if checkauth && !$user.auth}
-    <LoginDlg 
-        active={true}
-    >
-    </LoginDlg>
-{:else}
-    <div style="height: 100%; {stylish}">
-
-        {#if transition === "slide"}
-            <Slide>
-                <slot></slot>
-            </Slide>
-        {:else}
-            <slot></slot>
-        {/if}
-
-    </div>
-
+<!-- do login -->
+{#if $paramsDlg.checkauth && !$user.auth}
+<LoginDlg 
+    active={true}
+>
+</LoginDlg>
 {/if}
 
+<div style="height: 100%; {stylish}">
 
+    {#if transition === "slide"}
+        <Slide>
+            <slot></slot>
+        </Slide>
+    {:else}
+        <slot></slot>
+    {/if}
+
+</div>
 
